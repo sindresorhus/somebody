@@ -1,0 +1,36 @@
+{
+  "name": "somebody",
+  "version": "0.0.0",
+  "description": "Parse/stringify contact info like `Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)`",
+  "license": "MIT",
+  "repository": "sindresorhus/somebody",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "http://sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "somebody",
+    "person",
+    "author",
+    "contact",
+    "info",
+    "parse",
+    "stringify",
+    "name",
+    "email",
+    "url"
+  ],
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
