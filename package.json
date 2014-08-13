@@ -1,6 +1,6 @@
 {
   "name": "somebody",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Parse/stringify contact info like `Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)`",
   "license": "MIT",
   "repository": "sindresorhus/somebody",
