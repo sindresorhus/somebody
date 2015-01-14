@@ -28,8 +28,14 @@
     "stringify",
     "name",
     "email",
-    "url"
+    "url",
+    "license",
+    "banner"
   ],
+  "dependencies": {
+    "humanize-url": "^1.0.1",
+    "normalize-url": "^1.0.2"
+  },
   "devDependencies": {
     "mocha": "*"
   }

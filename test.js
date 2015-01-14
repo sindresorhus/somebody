@@ -9,7 +9,7 @@ describe('.parse()', function () {
 			{
 				name: 'Sindre Sorhus',
 				email: 'sindresorhus@gmail.com',
-				url: 'sindresorhus.com'
+				url: 'http://sindresorhus.com'
 			}
 		);
 	});
@@ -36,7 +36,7 @@ describe('.parse()', function () {
 		assert.deepEqual(
 			somebody.parse('(sindresorhus.com)'),
 			{
-				url: 'sindresorhus.com'
+				url: 'http://sindresorhus.com'
 			}
 		);
 	});
@@ -48,7 +48,7 @@ describe('.stringify()', function () {
 			somebody.stringify({
 				name: 'Sindre Sorhus',
 				email: 'sindresorhus@gmail.com',
-				url: 'sindresorhus.com'
+				url: 'http://sindresorhus.com'
 			}),
 			'Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)'
 		);

@@ -1,4 +1,6 @@
 'use strict';
+var normalizeUrl = require('normalize-url');
+var humanizeUrl = require('humanize-url');
 
 exports.parse = function (str) {
 	if (typeof str !== 'string') {
@@ -21,7 +23,7 @@ exports.parse = function (str) {
 	}
 
 	if (url && url[1].trim()) {
-		ret.url = url && url[1].trim();
+		ret.url = normalizeUrl(url && url[1].trim());
 	}
 
 	return ret;
@@ -34,7 +36,7 @@ exports.stringify = function (obj) {
 
 	var name = obj.name;
 	var email = obj.email && ('<' + obj.email + '>');
-	var url = obj.url && ('(' + obj.url + ')');
+	var url = obj.url && ('(' + humanizeUrl(obj.url) + ')');
 
 	return [name, email, url].filter(Boolean).join(' ');
 };
