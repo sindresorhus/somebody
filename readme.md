@@ -16,7 +16,7 @@ const somebody = require('somebody');
 const author = 'Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)';
 
 const parsed = somebody.parse(author);
-//=> {name: 'Sindre Sorhus', email: 'sindresorhus@gmail.com', url: 'http://sindresorhus.com'}
+//=> {name: 'Sindre Sorhus', email: 'sindresorhus@gmail.com', url: 'https://sindresorhus.com'}
 
 somebody.stringify(parsed) === author;
 //=> true
