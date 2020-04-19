@@ -1,22 +1,21 @@
-# somebody [![Build Status](https://travis-ci.org/sindresorhus/somebody.svg?branch=master)](https://travis-ci.org/sindresorhus/somebody)
+# somebody [![Build Status](https://travis-ci.com/sindresorhus/somebody.svg?branch=master)](https://travis-ci.com/sindresorhus/somebody)
 
 > Parse/stringify contact info like `Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)`
 
-
 ## Install
 
-```sh
-$ npm install --save somebody
 ```
-
+$ npm install somebody
+```
 
 ## Usage
 
 ```js
-var somebody = require('somebody');
-var author = 'Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)';
+const somebody = require('somebody');
 
-var parsed = somebody.parse(author);
+const author = 'Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)';
+
+const parsed = somebody.parse(author);
 //=> {name: 'Sindre Sorhus', email: 'sindresorhus@gmail.com', url: 'http://sindresorhus.com'}
 
 somebody.stringify(parsed) === author;
@@ -24,8 +23,3 @@ somebody.stringify(parsed) === author;
 ```
 
 Email and URL are optional.
-
-
-## License
-
-MIT © [Sindre Sorhus](http://sindresorhus.com)
