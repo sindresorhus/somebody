@@ -1,4 +1,4 @@
-# somebody [![Build Status](https://travis-ci.com/sindresorhus/somebody.svg?branch=master)](https://travis-ci.com/sindresorhus/somebody)
+# somebody
 
 > Parse/stringify contact info like `Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)`
 
