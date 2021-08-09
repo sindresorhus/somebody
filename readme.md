@@ -11,14 +11,14 @@ $ npm install somebody
 ## Usage
 
 ```js
-const somebody = require('somebody');
+import {parse, stringify} from 'somebody';
 
 const author = 'Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)';
 
-const parsed = somebody.parse(author);
+const parsed = parse(author);
 //=> {name: 'Sindre Sorhus', email: 'sindresorhus@gmail.com', url: 'https://sindresorhus.com'}
 
-somebody.stringify(parsed) === author;
+stringify(parsed) === author;
 //=> true
 ```
 

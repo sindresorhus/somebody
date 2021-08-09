@@ -1,42 +1,45 @@
 {
-  "name": "somebody",
-  "version": "2.0.0",
-  "description": "Parse/stringify contact info like `Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)`",
-  "license": "MIT",
-  "repository": "sindresorhus/somebody",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "https://sindresorhus.com"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "somebody",
-    "person",
-    "author",
-    "contact",
-    "info",
-    "parse",
-    "stringify",
-    "name",
-    "email",
-    "url",
-    "license",
-    "banner"
-  ],
-  "dependencies": {
-    "humanize-url": "^1.0.1",
-    "normalize-url": "^1.0.2"
-  },
-  "devDependencies": {
-    "mocha": "*"
-  }
+	"name": "somebody",
+	"version": "2.0.0",
+	"description": "Parse/stringify contact info like `Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)`",
+	"license": "MIT",
+	"repository": "sindresorhus/somebody",
+	"funding": "https://github.com/sponsors/sindresorhus",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "https://sindresorhus.com"
+	},
+	"type": "module",
+	"exports": "./index.js",
+	"engines": {
+		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"somebody",
+		"person",
+		"author",
+		"contact",
+		"info",
+		"parse",
+		"stringify",
+		"name",
+		"email",
+		"url",
+		"license",
+		"banner"
+	],
+	"dependencies": {
+		"normalize-url": "^7.0.0"
+	},
+	"devDependencies": {
+		"ava": "^3.15.0",
+		"xo": "^0.44.0"
+	}
 }

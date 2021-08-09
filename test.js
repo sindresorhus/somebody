@@ -1,103 +1,98 @@
-'use strict';
-var assert = require('assert');
-var somebody = require('./');
+import test from 'ava';
+import {parse, stringify} from './index.js';
 
-describe('.parse()', function () {
-	it('should parse all props', function () {
-		assert.deepEqual(
-			somebody.parse('Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)'),
-			{
-				name: 'Sindre Sorhus',
-				email: 'sindresorhus@gmail.com',
-				url: 'http://sindresorhus.com'
-			}
-		);
-	});
-
-	it('should parse name', function () {
-		assert.deepEqual(
-			somebody.parse('Sindre Sorhus'),
-			{
-				name: 'Sindre Sorhus'
-			}
-		);
-	});
-
-	it('should parse email', function () {
-		assert.deepEqual(
-			somebody.parse('<sindresorhus@gmail.com>'),
-			{
-				email: 'sindresorhus@gmail.com'
-			}
-		);
-	});
-
-	it('should parse url', function () {
-		assert.deepEqual(
-			somebody.parse('(sindresorhus.com)'),
-			{
-				url: 'http://sindresorhus.com'
-			}
-		);
-	});
+test('parse = should parse all props', t => {
+	t.deepEqual(
+		parse('Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)'),
+		{
+			name: 'Sindre Sorhus',
+			email: 'sindresorhus@gmail.com',
+			url: 'https://sindresorhus.com',
+		},
+	);
 });
 
-describe('.stringify()', function () {
-	it('should stringify all props', function () {
-		assert.deepEqual(
-			somebody.stringify({
-				name: 'Sindre Sorhus',
-				email: 'sindresorhus@gmail.com',
-				url: 'http://sindresorhus.com'
-			}),
-			'Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)'
-		);
-	});
+test('parse - should parse name', t => {
+	t.deepEqual(
+		parse('Sindre Sorhus'),
+		{
+			name: 'Sindre Sorhus',
+		},
+	);
+});
 
-	it('should stringify name', function () {
-		assert.deepEqual(
-			somebody.stringify({
-				name: 'Sindre Sorhus'
-			}),
-			'Sindre Sorhus'
-		);
-	});
+test('parse - should parse email', t => {
+	t.deepEqual(
+		parse('<sindresorhus@gmail.com>'),
+		{
+			email: 'sindresorhus@gmail.com',
+		},
+	);
+});
 
-	it('should stringify email', function () {
-		assert.deepEqual(
-			somebody.stringify({
-				email: 'sindresorhus@gmail.com'
-			}),
-			'<sindresorhus@gmail.com>'
-		);
-	});
+test('parse - should parse URL', t => {
+	t.deepEqual(
+		parse('(https://sindresorhus.com)'),
+		{
+			url: 'https://sindresorhus.com',
+		},
+	);
+});
 
-	it('should stringify url', function () {
-		assert.deepEqual(
-			somebody.stringify({
-				url: 'sindresorhus.com'
-			}),
-			'(sindresorhus.com)'
-		);
-	});
+test('stringify - should stringify all props', t => {
+	t.is(
+		stringify({
+			name: 'Sindre Sorhus',
+			email: 'sindresorhus@gmail.com',
+			url: 'https://sindresorhus.com',
+		}),
+		'Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)',
+	);
+});
 
-	it('should stringify name and email', function () {
-		assert.deepEqual(
-			somebody.stringify({
-				name: 'Sindre Sorhus',
-				email: 'sindresorhus@gmail.com'
-			}),
-			'Sindre Sorhus <sindresorhus@gmail.com>'
-		);
-	});
+test('stringify - should stringify name', t => {
+	t.is(
+		stringify({
+			name: 'Sindre Sorhus',
+		}),
+		'Sindre Sorhus',
+	);
+});
 
-	it('should stringify name and url', function () {
-		assert.deepEqual(
-			somebody.stringify({
-				name: 'Sindre Sorhus',
-				url: 'sindresorhus.com'
-			}),
-			'Sindre Sorhus (sindresorhus.com)'
-		);
-	});
+test('stringify - should stringify email', t => {
+	t.is(
+		stringify({
+			email: 'sindresorhus@gmail.com',
+		}),
+		'<sindresorhus@gmail.com>',
+	);
+});
+
+test('stringify - should stringify url', t => {
+	t.is(
+		stringify({
+			url: 'https://sindresorhus.com',
+		}),
+		'(https://sindresorhus.com)',
+	);
+});
+
+test('stringify - should stringify name and email', t => {
+	t.is(
+		stringify({
+			name: 'Sindre Sorhus',
+			email: 'sindresorhus@gmail.com',
+		}),
+		'Sindre Sorhus <sindresorhus@gmail.com>',
+	);
+});
+
+test('stringify - should stringify name and url', t => {
+	t.is(
+		stringify({
+			name: 'Sindre Sorhus',
+			url: 'https://sindresorhus.com',
+		}),
+		'Sindre Sorhus (https://sindresorhus.com)',
+	);
 });

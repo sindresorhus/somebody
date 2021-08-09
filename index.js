@@ -1,42 +1,41 @@
-'use strict';
-var normalizeUrl = require('normalize-url');
-var humanizeUrl = require('humanize-url');
+import normalizeUrl from 'normalize-url';
 
-exports.parse = function (str) {
-	if (typeof str !== 'string') {
+export function parse(string) {
+	if (typeof string !== 'string') {
 		throw new TypeError('Expected a string');
 	}
 
-	str = str.trim();
+	string = string.trim();
 
-	var ret = {};
-	var name = /^([^<(]+)/.exec(str);
-	var email = /<([^>]+)>/.exec(str);
-	var url = /\(([^)]+)\)/.exec(str);
+	const name = /^([^<(]+)/.exec(string);
+	const email = /<([^>]+)>/.exec(string);
+	const url = /\(([^)]+)\)/.exec(string);
+
+	const returnValue = {};
 
 	if (name && name[1].trim()) {
-		ret.name = name && name[1].trim();
+		returnValue.name = name && name[1].trim();
 	}
 
 	if (email && email[1].trim()) {
-		ret.email = email && email[1].trim();
+		returnValue.email = email && email[1].trim();
 	}
 
 	if (url && url[1].trim()) {
-		ret.url = normalizeUrl(url && url[1].trim());
+		returnValue.url = normalizeUrl(url && url[1].trim());
 	}
 
-	return ret;
-};
+	return returnValue;
+}
 
-exports.stringify = function (obj) {
-	if (typeof obj !== 'object') {
+export function stringify(object) {
+	if (typeof object !== 'object') {
 		throw new TypeError('Expected an object');
 	}
 
-	var name = obj.name;
-	var email = obj.email && ('<' + obj.email + '>');
-	var url = obj.url && ('(' + humanizeUrl(obj.url) + ')');
+	const {name} = object;
+	const email = object.email && `<${object.email}>`;
+	const url = object.url && `(${object.url})`;
 
 	return [name, email, url].filter(Boolean).join(' ');
-};
+}
